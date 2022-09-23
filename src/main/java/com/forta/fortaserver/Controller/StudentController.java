@@ -17,7 +17,6 @@ public class StudentController {
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    @ResponseBody
     public StudentDTO getStudentInfo(@PathVariable("id") Integer id) {
         System.out.println(studentService.getUserById(id));
         return studentService.getUserById(id);
