@@ -6,7 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
+@RequestMapping("/api/student")
 public class StudentController {
     private StudentService studentService;
 
@@ -14,7 +15,7 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-    @GetMapping("/api/student/{id}")
+    @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public StudentDTO getStudentInfo(@PathVariable("id") Integer id) {
@@ -22,7 +23,7 @@ public class StudentController {
         return studentService.getUserById(id);
     }
 
-    @PostMapping("/student/signup")
+    @PostMapping("/signup")
     public Integer studentJoinActivity() {
         System.out.println("studentJoinActivity");
         return 0;
